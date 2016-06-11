@@ -15,8 +15,10 @@
      </description>
 
     <properties>
-        <!-- JAVA VERSION -->
-        <java.version>1.8</java.version>
+        <!-- PROJECT CONFIGURATION -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
         
         <!-- APACHE COMMONS -->
         <apache-commons.lang.version>3.4</apache-commons.lang.version>
@@ -25,6 +27,7 @@
         <apache-commons.bean-utils.version>1.9.2
         </apache-commons.bean-utils.version>    <!-- TODO : Sure ?? -->
         <!-- APACHE COMMONS -->
+        
     </properties>
 
     <dependencies>
@@ -77,6 +80,24 @@
     </dependencyManagement>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4.3</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>
