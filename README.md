@@ -16,4 +16,4 @@ For example:
     );
 ```
 
-** Java Compatibility version: ** You can use this library from JRE 6. But you required JDK 8 to compile library
+** Java Compatibility version: ** You can use this library from JRE 6 and compile with JDK 6.
