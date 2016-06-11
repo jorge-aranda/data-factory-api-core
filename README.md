@@ -15,3 +15,5 @@ For example:
         StringUtils.join(helloWorld, StringUtils.EMPTY)
     );
 ```
+
+** Java Compatibility version: ** You can use this library from JRE 6 and compile with JDK 6.
