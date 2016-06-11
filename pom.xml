@@ -20,6 +20,9 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
         
+        <!-- JUNIT -->
+        <junit.version>4.12</junit.version>
+        
         <!-- APACHE COMMONS -->
         <apache-commons.lang.version>3.4</apache-commons.lang.version>
         <apache-commons.io.version>2.4</apache-commons.io.version>      <!-- TODO : Sure ?? -->
@@ -31,6 +34,12 @@
     </properties>
 
     <dependencies>
+ 
+        <!-- JUNIT -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
  
         <!-- APACHE COMMONS -->
         <dependency>
@@ -54,6 +63,14 @@
     
     <dependencyManagement>
         <dependencies>
+            <!-- JUNIT -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
             <!-- APACHE COMMONS -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
