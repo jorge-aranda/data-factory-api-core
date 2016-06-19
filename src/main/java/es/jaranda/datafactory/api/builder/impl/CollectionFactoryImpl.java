@@ -3,6 +3,7 @@ package es.jaranda.datafactory.api.builder.impl;
 
 import es.jaranda.datafactory.api.builder.CollectionFactory;
 import es.jaranda.datafactory.api.model.Node;
+import es.jaranda.datafactory.api.utils.NodeUtils;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,17 +36,14 @@ public class CollectionFactoryImpl<T> implements CollectionFactory<T> {
     @Override
     public List<T> toList() {
         // TODO in future this method calls to another which can passed any kind of list
+        final List<T> list = new LinkedList<T>();
         
-        final LinkedList<T> nodes = new LinkedList<T>();
-        Node<T> currentNode = lastNode;
+        final Node<T> nodes = NodeUtils.reverseNodes(lastNode);
         
-        while(currentNode != null) {
-            nodes.add(currentNode.getValue());
-            currentNode = currentNode.getAncestor();
+        for (T value : nodes) {
+            list.add(value);
         }
         
-        Collections.reverse(nodes); // XXX this is a first version. It needs to improve algorithm
-        
-        return nodes;
+        return list;
     }
 }
