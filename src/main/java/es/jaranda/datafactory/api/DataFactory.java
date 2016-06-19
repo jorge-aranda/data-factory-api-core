@@ -2,7 +2,9 @@
 package es.jaranda.datafactory.api;
 
 import es.jaranda.datafactory.api.builder.CollectionFactory;
+import es.jaranda.datafactory.api.builder.MapFactory;
 import es.jaranda.datafactory.api.builder.impl.CollectionFactoryImpl;
+import es.jaranda.datafactory.api.builder.impl.MapFactoryImpl;
 
 /**
  * Contains all methods to begin using API into static way
@@ -25,5 +27,20 @@ public class DataFactory {
     public static <T> CollectionFactory<T> item(T item) {
         final CollectionFactory<T> factory = new CollectionFactoryImpl<T>();
         return factory.item(item);
+    }
+    
+    /**
+     * Add new entry into your final collection
+     * 
+     * @param key    Key of entry to be included in your final map
+     * @param value  Value of entry to be included in your final map
+     * @param <K>    Type to use as key in your final Map
+     * @param <V>    Type to use as value in your final Map
+     * 
+     * @return MapFactory to still building your final map
+     */
+    public static <K, V> MapFactory<K,V> entry(K key, V value) {
+        final MapFactory<K, V> factory = new MapFactoryImpl<K, V>();
+        return factory.entry(key, value);
     }
 }
