@@ -7,7 +7,7 @@
 
     <groupId>es.jaranda.data-factory-api</groupId>
     <artifactId>data-factory-api-core</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2.RELASE</version>
     <name>Data Factory API - Core project</name>
     <description>
         Makes your Java Collections using a DSL language provided by this 
