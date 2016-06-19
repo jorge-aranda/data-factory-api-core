@@ -4,6 +4,7 @@ package es.jaranda.datafactory.api;
 import es.jaranda.datafactory.api.builder.CollectionFactory;
 import es.jaranda.datafactory.api.builder.MapFactory;
 import es.jaranda.datafactory.api.builder.impl.CollectionFactoryImpl;
+import es.jaranda.datafactory.api.builder.impl.MapFactoryImpl;
 
 /**
  * Contains all methods to begin using API into static way
@@ -39,7 +40,7 @@ public class DataFactory {
      * @return MapFactory to still building your final map
      */
     public static <K, V> MapFactory<K,V> entry(K key, V value) {
-        // TODO stub, implement this method
-        throw new UnsupportedOperationException("not supported yet");
+        final MapFactory<K, V> factory = new MapFactoryImpl<K, V>();
+        return factory.entry(key, value);
     }
 }
