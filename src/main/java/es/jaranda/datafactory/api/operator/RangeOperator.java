@@ -10,7 +10,7 @@ public interface RangeOperator<T> {
     
     /**
      * Get next value in the range from current
-     * @param current Current favlue
+     * @param current Current value
      * @return Next value in the range
      */
     T next(T current);
