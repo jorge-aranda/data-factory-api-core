@@ -2,6 +2,8 @@
 package es.jaranda.datafactory.api.model;
 
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Provides a simplificated infrastructure to recover a simpled Linked List
@@ -9,7 +11,7 @@ import java.io.Serializable;
  * @author Jorge
  * @param <T> Type contained in the node
  */
-public class Node<T> implements Serializable {
+public class Node<T> implements Iterable<T>, Serializable {
     
     private static final long serialVersionUID = -4854576544039411941L;
 
@@ -59,8 +61,31 @@ public class Node<T> implements Serializable {
     public Node<T> getAncestor() {
         return ancestor;
     }
-    
-    
-    
-    
+
+    @Override
+    public Iterator<T> iterator() {
+        final Node<T> node = this;
+        return new Iterator<T>() {
+
+            private Node<T> next = node;
+            
+            @Override
+            public boolean hasNext() {
+                return this.next != null;
+            }
+
+            @Override
+            public T next() {
+                final T value;
+                if (this.hasNext()) {
+                    value =     next.getValue();
+                    this.next = next.getAncestor();
+                } else {
+                    throw new NoSuchElementException();
+                }
+                
+                return value;
+            }
+        };
+    }
 }
