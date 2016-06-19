@@ -35,17 +35,32 @@ public class CollectionFactoryImpl<T> implements CollectionFactory<T> {
     @Override
     public List<T> toList() {
         // TODO in future this method calls to another which can passed any kind of list
+        final List<T> list = new LinkedList<T>();
         
-        final LinkedList<T> nodes = new LinkedList<T>();
-        Node<T> currentNode = lastNode;
+        final Node<T> nodes = reverseNodes(lastNode, null);
         
-        while(currentNode != null) {
-            nodes.add(currentNode.getValue());
-            currentNode = currentNode.getAncestor();
+        for (T value : nodes) {
+            list.add(value);
         }
         
-        Collections.reverse(nodes); // XXX this is a first version. It needs to improve algorithm
+        return list;
+    }
+    
+    private Node<T> reverseNodes(Node<T> node, Node<T> prevNode) {
+        final Node<T> reversedNode;
         
-        return nodes;
+        if (node.getAncestor() == null) {
+            reversedNode = new Node<T>(node.getValue(), prevNode);
+        } else {
+            reversedNode = reverseNodes(
+                    node.getAncestor(), 
+                    new Node<T>(
+                        node.getValue(),
+                        prevNode
+                    )
+            );
+        }
+        
+        return reversedNode;
     }
 }
