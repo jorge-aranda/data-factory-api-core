@@ -4,7 +4,6 @@ package es.jaranda.datafactory.api.builder.impl;
 import es.jaranda.datafactory.api.builder.CollectionFactory;
 import es.jaranda.datafactory.api.model.Node;
 import es.jaranda.datafactory.api.utils.NodeUtils;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
