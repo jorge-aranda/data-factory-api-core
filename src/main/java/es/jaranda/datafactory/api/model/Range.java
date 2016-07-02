@@ -107,4 +107,16 @@ public class Range<T> implements Iterable<T> {
             }
         };
     }
+
+    public T getFirstValue() {
+        return firstValue;
+    }
+
+    public T getLastValue() {
+        return lastValue;
+    }
+
+    public RangeOperator<T> getRangeOperator() {
+        return rangeOperator;
+    }
 }
